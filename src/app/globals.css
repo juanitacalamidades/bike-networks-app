@@ -3,60 +3,62 @@
 @import "shadcn/tailwind.css";
 
 
+@theme {
+  /* Torres Bay colors - custom palette */
+  --color-torres-bay-50: #eff4fe;
+  --color-torres-bay-100: #e2eafd;
+  --color-torres-bay-200: #cad7fb;
+  --color-torres-bay-300: #a0b0f6;
+  --color-torres-bay-400: #8090f0;
+  --color-torres-bay-500: #6c77e8;
+  --color-torres-bay-600: #5050db;
+  --color-torres-bay-700: #434bc1;
+  --color-torres-bay-800: #363b98;
+  --color-torres-bay-900: #33347c;
+  --color-torres-bay-950: #131348;
 
-:root {
-  /* Torres Bay - Blues */
-  --torres-bay-50: #efefef;
-  --torres-bay-100: #e2ead0;
-  --torres-bay-200: #cad7fb;
-  --torres-bay-300: #a0b0f6;
-  --torres-bay-400: #8090f0;
-  --torres-bay-500: #6c77e8;
-  --torres-bay-600: #5050db;
-  --torres-bay-700: #434bc1;
-  --torres-bay-800: #363b98;
-  --torres-bay-900: #33347c;
-  --torres-bay-950: #131348;
+  /* Grenadier colors - custom palette */
+  --color-grenadier-50: #fef5ee;
+  --color-grenadier-100: #fde8d7;
+  --color-grenadier-200: #facee6;
+  --color-grenadier-300: #f7a97a;
+  --color-grenadier-400: #f37b44;
+  --color-grenadier-500: #f0581f;
+  --color-grenadier-600: #da3e15;
+  --color-grenadier-700: #ba2d14;
+  --color-grenadier-800: #942619;
+  --color-grenadier-900: #94261b;
+  --color-grenadier-950: #78211b;
 
-  /* Grenadier - Oranges */
-  --grenadier-50: #fef5ee;
-  --grenadier-100: #fde8d7;
-  --grenadier-200: #facee6;
-  --grenadier-300: #f7a97a;
-  --grenadier-400: #f37b44;
-  --grenadier-500: #f0581f;
-  --grenadier-600: #da3e15;
-  --grenadier-700: #ba2d14;
-  --grenadier-800: #942619;
-  --grenadier-900: #94261b;
-  --grenadier-950: #78211b;
+    /* Base colors - Black/White */
+  --color-base-black: #000000;
+  --color-base-white: #ffffff;
 
-  /* Base - Black/White */
-  --base-black: #000000;
-  --base-white: #ffffff;
+  /* Zinc colors - Grays scale */
+  --color-zinc-50: #fafafa;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-800: #27272a;
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
 
-  /* Zinc - Grays */
-  --zinc-50: #fafafa;
-  --zinc-100: #f4f4f5;
-  --zinc-200: #e4e4e7;
-  --zinc-300: #d4d4d8;
-  --zinc-400: #a1a1aa;
-  --zinc-500: #71717a;
-  --zinc-600: #52525b;
-  --zinc-700: #3f3f46;
-  --zinc-800: #27272a;
-  --zinc-900: #18181b;
-  --zinc-950: #09090b;
+  /* Font sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
 
-  /* Font size */
-  --text-xs: 0.75rem;      /* 12px */
-  --text-sm: 0.875rem;     /* 14px */
-  --text-base: 1rem;       /* 16px */
-  --text-lg: 1.125rem;     /* 18px */
-  --text-xl: 1.25rem;      /* 20px */
-  --text-2xl: 1.5rem;      /* 24px */
-  --text-3xl: 1.875rem;    /* 30px */
-  --text-4xl: 2.25rem;     /* 36px */
+  /* Font family */
+  --font-family-sans: var(--font-poppins), system-ui, sans-serif;
 }
 
 @layer base {
@@ -64,4 +66,113 @@
       font-family: var(--font-poppins), sans-serif;
       color: var(--zinc-900);
     }
+}
+
+
+/* ========================================
+   NetworkCard - Details Button Animation
+   ======================================== */
+
+/* 
+  Keyframesfor bounce ease-out effect
+  The text expands from right to left
+*/
+@keyframes expandBounce {
+  0% {
+    max-width: 0;
+    opacity: 0;
+  }
+  70% {
+    max-width: 85px; /* Slightly larger than final size for the bounce effect*/
+  }
+  85% {
+    max-width: 72px; /* Reboot */
+  }
+  100% {
+    max-width: 80px; /* Final size */
+    opacity: 1;
+  }
+}
+
+@keyframes collapseBounce {
+  0% {
+    max-width: 80px;
+    opacity: 1;
+  }
+  100% {
+    max-width: 0;
+    opacity: 0;
+  }
+}
+
+/* 
+  Contenedor del botón
+  - En móvil: solo muestra la flecha (sin animación)
+  - En desktop: activa la animación en hover
+*/
+.details-button-animated {
+  @apply inline-flex items-center gap-2 overflow-hidden;
+  position: relative;
+  
+  /* Mobile: solo icono */
+  @apply md:px-0 md:py-0;
+}
+
+/* 
+  Text "Details"
+  - Hidden in desktop
+  - Alwais hidden in mobile
+*/
+.details-text {
+  @apply hidden md:inline-block whitespace-nowrap font-medium text-grenadier-500;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: none; /* To avoid default transition, keyframes are used */
+}
+
+/* 
+  Arrow
+*/
+.details-arrow {
+  @apply h-6 w-6 text-grenadier-500 shrink-0;
+  
+  /* In desktop inside button */
+  @apply md:h-4 md:w-4;
+}
+
+
+
+
+/* ========================================
+   Card hover - Activa animación del botón
+   ======================================== */
+
+/* Hover sobre el Card completo cambia su background */
+@media (min-width: 768px) {
+  .group:hover {
+    background-color: #e2eafd;
+    transition: background-color 250ms ease;
+  }
+}
+
+/* Cuando haces hover en el Card, el botón se expande */
+@media (min-width: 768px) {
+  .group:hover .details-button-animated {
+    @apply px-6 py-2 rounded-full;
+    transition: padding 250ms cubic-bezier(0.34, 1.56, 0.64, 1), 
+                background-color 250ms ease,
+                border 250ms ease;
+  }
+
+  /* El texto aparece con animación bounce */
+  .group:hover .details-button-animated .details-text {
+    animation: expandBounce 250ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    
+  }
+
+  /* Hover adicional sobre el botón cuando ya está expandido */
+  .group:hover .details-button-animated {
+    @apply bg-base-white;
+  }
 }

@@ -28,37 +28,38 @@ export default async function Home() {
   return (
     <main>
       <div className="container mx-auto px-4 py-8">
-        {/* Header con logo y título */}
-        <div className="mb-8 space-y-3">
-          {/* Logo + Nombre */}
+        {/* Header con logo - fuera del grid */}
+        <div className="mb-8">
           <div className="flex items-center gap-2">
-            <Bike className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold text-primary">CycleMap</span>
+            <Bike className="h-8 w-8 text-grenadier-400" />
+            <span className="text-xl font-bold text-grenadier-400">CycleMap</span>
           </div>
-
-          {/* Título */}
-          <h1 className="text-4xl font-bold tracking-tight text-primary">
-            Discover bike networks
-          </h1>
-
-          {/* Descripción */}
-          <p className="text-muted-foreground max-w-2xl">
-            Lorem ipsum dolor sit amet consectetur. A volutpat adipiscing 
-            placerat turpis magna amet faucibus. Arcu praesent viverra 
-            pellentesque nisi quam in rhoncus.
-          </p>
         </div>
-
-        {/* TODO: Aquí irán los filtros */}
 
         {/* Layout de dos columnas: Lista + Mapa */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Columna izquierda: Lista de redes */}
-          <div>
+          {/* Columna izquierda: Título + Descripción + Lista de redes */}
+          <div className="space-y-6">
+            {/* Título y descripción */}
+            <div className="space-y-3">
+              <h1 className="text-4xl font-bold tracking-tight text-torres-bay-800">
+                Discover bike networks
+              </h1>
+
+              <p className="text-sm text-zinc-500">
+                Lorem ipsum dolor sit amet consectetur. A volutpat adipiscing 
+                placerat turpis magna sem tempor amet faucibus. Arcu praesent 
+                viverra pellentesque nisi quam in rhoncus.
+              </p>
+            </div>
+
+            {/* TODO: Aquí irán los filtros */}
+
+            {/* Lista de redes */}
             <NetworkList networks={networks} />
           </div>
 
-          {/* Columna derecha: Mapa placeholder */}
+          {/* Columna derecha: Mapa */}
           <div className="hidden lg:block">
             <div className="sticky top-8 h-[600px] rounded-lg border-2 border-dashed border-muted-foreground/25 flex items-center justify-center bg-muted/10">
               <p className="text-muted-foreground text-sm">

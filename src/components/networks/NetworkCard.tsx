@@ -40,31 +40,36 @@ export function NetworkCard({ network }: NetworkCardProps){
     const remainingCount = companies.length - 2;
 
       return (
+        
 
-      <Card className="group relative transition-all gap-0 duration-200 hover:bg-primary/5 hover:border-primary/20">
-        <CardHeader>
-          <CardTitle className="--text-xl --torres-bay-800 mb-1">
+      <Card className="group relative transition-all gap-0 duration-200 group-hover/button:bg-torres-bay-100 border-b border-torres-bay-100">
+        <CardHeader className='gap-0 mb-1'>
+          <CardTitle className="text-xl/7 text-torres-bay-800">
             {network.name}
           </CardTitle>
         </CardHeader>
 
-        <CardContent>
+        <CardContent className='flex flex-col'>
           {/* Ubicación */}
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <MapPin className="h-5 w-5 text-orange-500 flex-shrink-0" />
-            <span className="">
+          <div className="flex items-center mb-2">
+            <div className="flex items-center justify-center h-6 w-6 bg-torres-bay-50 rounded mr-2 shrink-0">
+              <MapPin className="h-4 w-4 text-grenadier-400" />
+            </div>
+            <span className="text-sm/7 text-zinc-500">
               {network.location.city}, {network.location.country}
             </span>
           </div>
 
           {/* Compañías */}
-          <div className="flex items-center gap-2">
-            <Briefcase className="h-5 w-5 text-orange-500 flex-shrink-0" />
-            <div className="flex flex-wrap gap-2 items-center">
+          <div className="flex items-center">
+            <div className="flex items-center justify-center h-6 w-6 bg-torres-bay-50 rounded mr-2 shrink-0">
+              <Briefcase className="h-4 w-4 text-grenadier-400" />
+            </div>
+            <div className="flex flex-wrap items-center">
               {companies.length > 0 ? (
                 <>
                   {displayCompanies.map((company, index) => (
-                    <span key={index} className="text-base text-muted-foreground">
+                    <span key={index} className="text-sm/7 text-zinc-500">
                       {company}
                       {index < displayCompanies.length - 1 && ','}
                     </span>
@@ -73,7 +78,7 @@ export function NetworkCard({ network }: NetworkCardProps){
                   {remainingCount > 0 && (
                     <Badge 
                       variant="outline" 
-                      className="text-sm border-orange-500 text-orange-500"
+                      className="text-sm rounded-xs border-grenadier-400 text-grenadier-400"
                     >
                       +{remainingCount}
                     </Badge>
@@ -88,30 +93,21 @@ export function NetworkCard({ network }: NetworkCardProps){
           </div>
         </CardContent>
 
-        {/* 
-          Flecha simple - Visible por defecto, se oculta en hover 
-          Siempre visible en móvil (no hay hover)
+       
+
+       {/* 
+          Botón animado "Details" con flecha
+          - En móvil: solo flecha visible
+          - En desktop: flecha siempre visible, texto aparece en hover desde la derecha hacia la izquierda
         */}
-        <div className="absolute right-6 top-1/2 -translate-y-1/2 md:group-hover:opacity-0 transition-opacity duration-200">
+        <CardFooter className="absolute right-6 top-1/2 -translate-y-1/2 p-0">
           <Link 
             href={detailUrl}
+            className="details-button-animated"
             aria-label={`View details for ${network.name}`}
           >
-            <ArrowRight className="h-6 w-6 text-orange-500" />
-          </Link>
-        </div>
-
-        {/* 
-          Botón "Details" - Oculto por defecto, aparece en hover (solo desktop)
-          En móvil no se muestra (usamos solo la flecha)
-        */}
-        <CardFooter className="hidden md:flex md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 justify-end pt-0">
-          <Link 
-            href={detailUrl}
-            className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white border border-orange-200 text-orange-500 font-medium hover:bg-orange-50"
-          >
-            Details
-            <ArrowRight className="h-4 w-4" />
+            <span className="details-text">Details</span>
+            <ArrowRight className="details-arrow" />
           </Link>
         </CardFooter>
       </Card>

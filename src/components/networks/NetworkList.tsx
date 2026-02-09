@@ -45,7 +45,7 @@ export function NetworkList({ networks }: NetworkListProps) {
     // If there aren't any networks, desplay message: 
     if (!networks || networks.length === 0) {
         return (
-        <div className="flex items-center justify-center min-h-[400px]">
+        <div className="flex items-center justify-center min-h-400">
             <div className="text-center space-y-2">
             <p className="text-lg font-medium text-muted-foreground">
                 No bicycle networks found
@@ -121,40 +121,40 @@ export function NetworkList({ networks }: NetworkListProps) {
             {/* Pagination */}
             {totalPages > 1 && (
                 <Pagination>
-                <PaginationContent>
-                    {/* Previous button */}
-                    <PaginationItem>
-                    <PaginationPrevious 
-                        onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
-                        className={currentPage === 1 ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
-                    />
-                    </PaginationItem>
+                    <PaginationContent className="text-torres-bay-950">
+                        {/* Previous button */}
+                        <PaginationItem>
+                        <PaginationPrevious 
+                            onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
+                            className={currentPage === 1 ? 'pointer-events-none' : 'cursor-pointer hover:bg-torres-bay-50'}
+                        />
+                        </PaginationItem>
 
-                    {/* Page numbers */}
-                    {getPageNumbers().map((page, index) => (
-                    <PaginationItem key={index}>
-                        {page === 'ellipsis' ? (
-                        <PaginationEllipsis />
-                        ) : (
-                        <PaginationLink
-                            onClick={() => handlePageChange(page)}
-                            isActive={currentPage === page}
-                            className="cursor-pointer"
-                        >
-                            {page}
-                        </PaginationLink>
-                        )}
-                    </PaginationItem>
-                    ))}
+                        {/* Page numbers */}
+                        {getPageNumbers().map((page, index) => (
+                        <PaginationItem key={index}>
+                            {page === 'ellipsis' ? (
+                            <PaginationEllipsis />
+                            ) : (
+                            <PaginationLink
+                                onClick={() => handlePageChange(page)}
+                                isActive={currentPage === page}
+                                className={ `cursor-pointer hover:bg-torres-bay-50 ${currentPage === page ? 'bg-torres-bay-100 border border-torres-bay-200' : ''}`}
+                            >
+                                {page}
+                            </PaginationLink>
+                            )}
+                        </PaginationItem>
+                        ))}
 
-                    {/* Next button */}
-                    <PaginationItem>
-                    <PaginationNext 
-                        onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
-                        className={currentPage === totalPages ? 'pointer-events-none opacity-50' : 'cursor-pointer'}
-                    />
-                    </PaginationItem>
-                </PaginationContent>
+                        {/* Next button */}
+                        <PaginationItem>
+                        <PaginationNext 
+                            onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
+                            className={currentPage === totalPages ? 'pointer-events-none opacity-50' : 'cursor-pointer hover:bg-torres-bay-50'}
+                        />
+                        </PaginationItem>
+                    </PaginationContent>
                 </Pagination>
             )}
 
