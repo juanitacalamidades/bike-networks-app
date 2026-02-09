@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Network } from '@/types/networks';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardFooter, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Briefcase, ArrowRight } from 'lucide-react';
 
@@ -40,81 +40,81 @@ export function NetworkCard({ network }: NetworkCardProps){
     const remainingCount = companies.length - 2;
 
       return (
-            <div className="group relative px-6 pt-4 pb-6 border-b-1 transition-all duration-200 hover:bg-primary/5 hover:border-primary/20"
-            >
-      {/* Título de la red */}
-      <h3 className="text-2xl font-bold text-primary mb-1">
-        {network.name}
-      </h3>
 
-      {/* Contenedor de ubicación y compañías */}
-      <div className="space-y-2">
-        {/* Ubicación */}
-        <div className="flex items-center gap-2 text-muted-foreground">
-          <MapPin className="h-5 w-5 text-orange-500 flex-shrink-0" />
-          <span className="text-base">
-            {network.location.city}, {network.location.country}
-          </span>
-        </div>
+      <Card className="group relative transition-all gap-0 duration-200 hover:bg-primary/5 hover:border-primary/20">
+        <CardHeader>
+          <CardTitle className="--text-xl --torres-bay-800 mb-1">
+            {network.name}
+          </CardTitle>
+        </CardHeader>
 
-        {/* Compañías */}
-        <div className="flex items-center gap-2">
-          <Briefcase className="h-5 w-5 text-orange-500 flex-shrink-0" />
-          <div className="flex flex-wrap gap-2 items-center">
-            {companies.length > 0 ? (
-              <>
-                {displayCompanies.map((company, index) => (
-                  <span key={index} className="text-base text-muted-foreground">
-                    {company}
-                    {index < displayCompanies.length - 1 && ','}
-                  </span>
-                ))}
-                
-                {remainingCount > 0 && (
-                  <Badge 
-                    variant="outline" 
-                    className="text-sm border-orange-500 text-orange-500"
-                  >
-                    +{remainingCount}
-                  </Badge>
-                )}
-              </>
-            ) : (
-              <span className="text-base text-muted-foreground italic">
-                No company information
-              </span>
-            )}
+        <CardContent>
+          {/* Ubicación */}
+          <div className="flex items-center gap-2 text-muted-foreground">
+            <MapPin className="h-5 w-5 text-orange-500 flex-shrink-0" />
+            <span className="--text-sm --zinc-500">
+              {network.location.city}, {network.location.country}
+            </span>
           </div>
+
+          {/* Compañías */}
+          <div className="flex items-center gap-2">
+            <Briefcase className="h-5 w-5 text-orange-500 flex-shrink-0" />
+            <div className="flex flex-wrap gap-2 items-center">
+              {companies.length > 0 ? (
+                <>
+                  {displayCompanies.map((company, index) => (
+                    <span key={index} className="text-base text-muted-foreground">
+                      {company}
+                      {index < displayCompanies.length - 1 && ','}
+                    </span>
+                  ))}
+                  
+                  {remainingCount > 0 && (
+                    <Badge 
+                      variant="outline" 
+                      className="text-sm border-orange-500 text-orange-500"
+                    >
+                      +{remainingCount}
+                    </Badge>
+                  )}
+                </>
+              ) : (
+                <span className="text-base text-muted-foreground italic">
+                  No company information
+                </span>
+              )}
+            </div>
+          </div>
+        </CardContent>
+
+        {/* 
+          Flecha simple - Visible por defecto, se oculta en hover 
+          Siempre visible en móvil (no hay hover)
+        */}
+        <div className="absolute right-6 top-1/2 -translate-y-1/2 md:group-hover:opacity-0 transition-opacity duration-200">
+          <Link 
+            href={detailUrl}
+            aria-label={`View details for ${network.name}`}
+          >
+            <ArrowRight className="h-6 w-6 text-orange-500" />
+          </Link>
         </div>
-      </div>
 
-      {/* 
-        Flecha simple - Visible por defecto, se oculta en hover 
-        Siempre visible en móvil (no hay hover)
-      */}
-      <div className="absolute right-6 top-1/2 -translate-y-1/2 md:group-hover:opacity-0 transition-opacity duration-200">
-        <Link 
-          href={detailUrl}
-          aria-label={`View details for ${network.name}`}
-        >
-          <ArrowRight className="h-6 w-6 text-orange-500" />
-        </Link>
-      </div>
-
-      {/* 
-        Botón "Details" - Oculto por defecto, aparece en hover (solo desktop)
-        En móvil no se muestra (usamos solo la flecha)
-      */}
-      <div className="hidden md:flex md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 justify-end">
-        <Link 
-          href={detailUrl}
-          className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white border border-orange-200 text-orange-500 font-medium hover:bg-orange-50"
-        >
-          Details
-          <ArrowRight className="h-4 w-4" />
-        </Link>
-      </div>
-    </div>
+        {/* 
+          Botón "Details" - Oculto por defecto, aparece en hover (solo desktop)
+          En móvil no se muestra (usamos solo la flecha)
+        */}
+        <CardFooter className="hidden md:flex md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 justify-end pt-0">
+          <Link 
+            href={detailUrl}
+            className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white border border-orange-200 text-orange-500 font-medium hover:bg-orange-50"
+          >
+            Details
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </CardFooter>
+      </Card>
 
   )
 }
