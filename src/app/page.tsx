@@ -1,7 +1,5 @@
 import { getNetworks } from "@/lib/api/citybikes";
-import { NetworkList } from '@/components/networks/NetworkList';
-import { Bike } from 'lucide-react';
-
+import { NetworksView } from '@/components/networks/NetworksView';
 
 /**
  * Home page.
@@ -26,50 +24,23 @@ export default async function Home() {
   const networks = await getNetworks();
 
   return (
-    <main>
-      <div className="container mx-auto px-4 py-8">
-        {/* Header con logo - fuera del grid */}
-        <div className="mb-8">
-          <div className="flex items-center gap-2">
-            <Bike className="h-8 w-8 text-grenadier-400" />
-            <span className="text-xl font-bold text-grenadier-400">CycleMap</span>
-          </div>
-        </div>
-
-        {/* Layout de dos columnas: Lista + Mapa */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Columna izquierda: Título + Descripción + Lista de redes */}
-          <div className="space-y-6">
-            {/* Título y descripción */}
-            <div className="space-y-3">
-              <h1 className="text-4xl font-bold tracking-tight text-torres-bay-800">
-                Discover bike networks
-              </h1>
-
-              <p className="text-sm text-zinc-500">
-                Lorem ipsum dolor sit amet consectetur. A volutpat adipiscing 
-                placerat turpis magna sem tempor amet faucibus. Arcu praesent 
-                viverra pellentesque nisi quam in rhoncus.
-              </p>
-            </div>
-
-            {/* TODO: Aquí irán los filtros */}
-
-            {/* Lista de redes */}
-            <NetworkList networks={networks} />
-          </div>
-
-          {/* Columna derecha: Mapa */}
-          <div className="hidden lg:block">
-            <div className="sticky top-8 h-[600px] rounded-lg border-2 border-dashed border-muted-foreground/25 flex items-center justify-center bg-muted/10">
-              <p className="text-muted-foreground text-sm">
-                Map placeholder (to be implemented)
-              </p>
-            </div>
-          </div>
+    <main className="flex flex-col lg:flex-row h-screen overflow-hidden">
+      {/* Columna izquierda: Lista de redes */}
+      <div className="w-full lg:w-[40%] h-screen overflow-y-auto scrollbar-hide">
+        <div className="p-10">
+          <NetworksView networks={networks} />
         </div>
       </div>
-    </main>
+
+      {/* Columna derecha: Mapa (ocupa todo el espacio restante) */}
+      <div className="hidden lg:block lg:flex-1 relative h-screen">
+        <div className="sticky top-0 h-screen w-full border-2 border-dashed border-muted-foreground/25 flex items-center justify-center bg-muted/10">
+          <p className="text-muted-foreground text-sm">
+            Map placeholder (to be implemented)
+          </p>
+        </div>
+      </div>
+      </main>
   )
 }
 

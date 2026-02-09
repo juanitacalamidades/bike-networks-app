@@ -30,7 +30,7 @@ interface NetworkCardProps {
 export function NetworkCard({ network }: NetworkCardProps){
 
     // Builds URL for detail view
-    const detailUrl = `/networks/${network.id}`;
+    const detailUrl = `/network/${network.id}`;
 
     // Companies to array
     const companies = normalizeCompanies(network.company);
@@ -42,14 +42,14 @@ export function NetworkCard({ network }: NetworkCardProps){
       return (
         
 
-      <Card className="group relative transition-all gap-0 duration-200 group-hover/button:bg-torres-bay-100 border-b border-torres-bay-100">
-        <CardHeader className='gap-0 mb-1'>
+      <Card className="group relative transition-all gap-0 px-6 py-4 duration-200 group-hover/button:bg-torres-bay-100 border-b border-torres-bay-100">
+        <CardHeader className='gap-0 mb-1 p-0'>
           <CardTitle className="text-xl/7 text-torres-bay-800">
             {network.name}
           </CardTitle>
         </CardHeader>
 
-        <CardContent className='flex flex-col'>
+        <CardContent className='flex flex-col p-0'>
           {/* Ubicación */}
           <div className="flex items-center mb-2">
             <div className="flex items-center justify-center h-6 w-6 bg-torres-bay-50 rounded mr-2 shrink-0">

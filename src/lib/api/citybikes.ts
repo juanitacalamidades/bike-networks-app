@@ -1,4 +1,4 @@
-import { Network, NetworksAPIResponse } from "@/types/networks";
+import { Network, NetworkDetail, NetworksAPIResponse, NetworkDetailAPIResponse } from "@/types/networks";
 
 
 // Basic URL from env. variables
@@ -52,25 +52,36 @@ export async function getNetworks() : Promise<Network[]> {
  * @returns Promise returns details from specific network
  */
 
-export async function getNetworkById(id : string) : Promise<Network> {
+export async function getNetworkById(id : string) : Promise<NetworkDetail> {
 
     try{
 
         const response = await fetch(`${API_URL}/networks/${id}`, {
 
-            // no cache because station data changes all the time
-            cache : 'no-store'
+            // Cache for 1 minute - station data changes frequently
+            next: { revalidate: 60 }
         });
 
         if(!response.ok){
             throw new Error(`HTTP error. Status: ${response.status}`);
         };
 
-        const data = await response.json();
+       const data: NetworkDetailAPIResponse = await response.json();
+
+       return data.network;
 
     }catch(error){
         
         console.error(`Error fetching network ${id}: `, error);
         throw new Error(`Failed to fetch details for ${id} networks`);
     }
+}
+
+/**
+ * Helper function to normalize company data
+ * The API returns company as string, string[], or null
+ */
+export function normalizeCompanies(company: string | string[] | null | undefined): string[] {
+    if (!company) return [];
+    return Array.isArray(company) ? company : [company];
 }

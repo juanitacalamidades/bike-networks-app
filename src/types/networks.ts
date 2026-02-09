@@ -23,3 +23,40 @@ export interface Network {
 export interface NetworksAPIResponse {
     networks : Network[]; // All networks available
 }
+
+// ============================================
+// NEW TYPES FOR DETAIL VIEW
+// ============================================
+
+/**
+ * Station within a network
+ */
+export interface Station {
+    id: string;
+    name: string;
+    timestamp: string;
+    latitude: number;
+    longitude: number;
+    free_bikes: number;
+    empty_slots: number;
+    extra?: {
+        uid?: string;
+        number?: number;
+        [key: string]: any;
+    };
+}
+
+/**
+ * Full network details from the network detail endpoint
+ * Extends Network with stations array
+ */
+export interface NetworkDetail extends Omit<Network, 'href'> {
+    stations: Station[];
+}
+
+/**
+ * API Response for single network detail
+ */
+export interface NetworkDetailAPIResponse {
+    network: NetworkDetail;
+}
