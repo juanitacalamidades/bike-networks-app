@@ -52,7 +52,7 @@ export function NetworkCard({ network }: NetworkCardProps){
           {/* Ubicación */}
           <div className="flex items-center gap-2 text-muted-foreground">
             <MapPin className="h-5 w-5 text-orange-500 flex-shrink-0" />
-            <span className="--text-sm --zinc-500">
+            <span className="">
               {network.location.city}, {network.location.country}
             </span>
           </div>

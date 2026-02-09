@@ -27,7 +27,7 @@
   --grenadier-500: #f0581f;
   --grenadier-600: #da3e15;
   --grenadier-700: #ba2d14;
-  --grenadier-800: #ba2d14;
+  --grenadier-800: #942619;
   --grenadier-900: #94261b;
   --grenadier-950: #78211b;
 
@@ -47,18 +47,21 @@
   --zinc-800: #27272a;
   --zinc-900: #18181b;
   --zinc-950: #09090b;
+
+  /* Font size */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
 }
 
 @layer base {
-    :root {
-      /* Tamaños de texto según Figma */
-      --text-xs: 0.75rem;      /* 12px */
-      --text-sm: 0.875rem;     /* 14px */
-      --text-base: 1rem;       /* 16px */
-      --text-lg: 1.125rem;     /* 18px */
-      --text-xl: 1.25rem;      /* 20px */
-      --text-2xl: 1.5rem;      /* 24px */
-      --text-3xl: 1.875rem;    /* 30px */
-      --text-4xl: 2.25rem;     /* 36px */
+    body {
+      font-family: var(--font-poppins), sans-serif;
+      color: var(--zinc-900);
     }
 }
