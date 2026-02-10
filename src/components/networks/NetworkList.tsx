@@ -164,6 +164,6 @@ export function NetworkList({ networks }: NetworkListProps) {
                 Showing {startIndex + 1}-{Math.min(endIndex, networks.length)} of {networks.length} bicycle network{networks.length !== 1 ? 's' : ''}
                 </p>
             </div>
-            </div>
+        </div>
         );
 }

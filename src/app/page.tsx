@@ -1,5 +1,6 @@
 import { getNetworks } from "@/lib/api/citybikes";
 import { NetworksView } from '@/components/networks/NetworksView';
+import { NetworksMapView } from "@/components/map/NetworksMapView";
 
 /**
  * Home page.
@@ -35,9 +36,7 @@ export default async function Home() {
       {/* Columna derecha: Mapa (ocupa todo el espacio restante) */}
       <div className="hidden lg:block lg:flex-1 relative h-screen">
         <div className="sticky top-0 h-screen w-full border-2 border-dashed border-muted-foreground/25 flex items-center justify-center bg-muted/10">
-          <p className="text-muted-foreground text-sm">
-            Map placeholder (to be implemented)
-          </p>
+          <NetworksMapView networks={networks} />
         </div>
       </div>
       </main>
