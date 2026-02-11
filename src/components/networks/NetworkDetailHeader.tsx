@@ -23,7 +23,7 @@ export function NetworkDetailHeader({
 
   return (
     <div className="relative h-64 overflow-hidden px-10">
-      {/* Hero image - usando Unsplash con una imagen de bicicletas */}
+      {/* Hero image */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -36,36 +36,36 @@ export function NetworkDetailHeader({
       </div>
 
       {/* Contenido sobre la imagen */}
-      <div className="relative h-full flex flex-col justify-between py-6 text-white">
+      <div className="relative h-full flex flex-col justify-between py-6 text-base-white">
         {/* Botón de volver */}
         <button
           onClick={() => router.back()}
-          className="self-start flex items-center justify-center w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm transition-colors"
+          className="self-start flex items-center justify-center w-10 h-10 rounded-full bg-base-white cursor-pointer"
           aria-label="Go back"
         >
-          <ArrowLeft className="h-5 w-5" />
+          <ArrowLeft className="h-5 w-5 text-grenadier-400" />
         </button>
 
-        {/* Info de la red */}
+        {/* Network info*/}
         <div className="space-y-3">
-          {/* Nombre de la red */}
-          <h1 className="text-4xl font-bold tracking-tight">
+          {/* Name */}
+          <h1 className="text-3xl font-bold">
             {name}
           </h1>
 
-          {/* Ubicación */}
-          <div className="flex items-center gap-2 text-white/90">
+          {/* Location */}
+          <div className="flex items-center gap-2 text-base-white">
             <MapPin className="h-4 w-4" />
-            <span className="text-sm">
+            <span className="text-base text-torres-bay-100">
               {location.city}, {location.country}
             </span>
           </div>
 
           {/* Compañías */}
           {companies.length > 0 && (
-            <div className="flex items-start gap-2 text-white/90">
+            <div className="flex items-start gap-2 text-base-white">
               <Briefcase className="h-4 w-4 mt-0.5 shrink-0" />
-              <span className="text-sm">
+              <span className="text-base text-torres-bay-100">
                 {companies.join(', ')}
               </span>
             </div>
