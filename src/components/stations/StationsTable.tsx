@@ -108,18 +108,18 @@ export function StationsTable({ stations }: StationsTableProps) {
 
     return [...stations].sort((a, b) => {
       let aValue: number | string;
-      let bVal: number | string;
+      let bValue: number | string;
 
       if (sortField === 'name') {
         aValue = a.name.toLowerCase();
-        bVal = b.name.toLowerCase();
+        bValue = b.name.toLowerCase();
       } else {
         aValue = a[sortField];
-        bVal = b[sortField];
+        bValue = b[sortField];
       }
 
-      if (aValue < bVal) return sortDirection === 'asc' ? -1 : 1;
-      if (aValue > bVal) return sortDirection === 'asc' ? 1 : -1;
+      if (aValue < bValue) return sortDirection === 'asc' ? -1 : 1;
+      if (aValue > bValue) return sortDirection === 'asc' ? 1 : -1;
       return 0;
     });
   }, [stations, sortField, sortDirection]);
@@ -127,23 +127,23 @@ export function StationsTable({ stations }: StationsTableProps) {
   // Get sort icon
   const getSortIcon = (field: SortField) => {
     if (sortField !== field) {
-      return <ArrowUpDown className="h-4 w-4" />;
+      return <ArrowUpDown className="h-3 w-3" />;
     }
     if (sortDirection === 'asc') {
-      return <ArrowUp className="h-4 w-4" />;
+      return <ArrowUp className="h-3 w-3" />;
     }
     if (sortDirection === 'desc') {
-      return <ArrowDown className="h-4 w-4" />;
+      return <ArrowDown className="h-3 w-3" />;
     }
-    return <ArrowUpDown className="h-4 w-4" />;
+    return <ArrowUpDown className="h-3 w-3" />;
   };
 
   return (
-    <div className="bg-torres-bay-800 text-white px-10">
+    <div className="bg-torres-bay-800 text-base-white px-10">
       {/* Header con contador */}
-      <div className="px-6 py-4 border-b border-white/10">
+      <div className="pt-2 pb-3">
         <p className="text-sm">
-          All <span className="inline-flex items-center justify-center min-w-2rem px-2 py-0.5 rounded-full bg-white/20 font-medium">{stations.length}</span> stations
+          All <span className="inline-flex items-center justify-center min-w-2rem mx-2 px-2 rounded border border-grenadier-400 font-medium text-grenadier-400">{stations.length}</span> stations
         </p>
       </div>
 
@@ -151,29 +151,29 @@ export function StationsTable({ stations }: StationsTableProps) {
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-white/10">
-              <th className="px-6 py-4 text-left">
+            <tr className="border-b border-base-white">
+              <th className="text-left p-2">
                 <button
                   onClick={() => handleSort('name')}
-                  className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-white/70 hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-sm font-medium uppercase text-base-base-white"
                 >
                   Station Name
                   {getSortIcon('name')}
                 </button>
               </th>
-              <th className="px-6 py-4 text-left">
+              <th className="text-center p-2">
                 <button
                   onClick={() => handleSort('free_bikes')}
-                  className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-white/70 hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-sm font-medium uppercase text-base-white"
                 >
                   Free Bikes
                   {getSortIcon('free_bikes')}
                 </button>
               </th>
-              <th className="px-6 py-4 text-left">
+              <th className="text-center p-2">
                 <button
                   onClick={() => handleSort('empty_slots')}
-                  className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-white/70 hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-sm font-medium uppercase text-base-white"
                 >
                   Empty Slots
                   {getSortIcon('empty_slots')}
@@ -185,15 +185,15 @@ export function StationsTable({ stations }: StationsTableProps) {
             {sortedStations.map((station, index) => (
               <tr 
                 key={station.id || index}
-                className="border-b border-white/5 hover:bg-white/5 transition-colors"
+                className="border-b border-dashed border-base-white/50 hover:bg-base-white/10 transition-colors cursor-pointer"
               >
-                <td className="px-6 py-4 text-sm font-medium">
+                <td className="px-2 py-4 text-base hover:translate-x-2 transition transition-duration-300">
                   {station.name}
                 </td>
-                <td className="px-6 py-4 text-lg font-bold">
+                <td className="px-2 py-4 text-base text-center font-bold">
                   {station.free_bikes}
                 </td>
-                <td className="px-6 py-4 text-lg font-bold">
+                <td className="px-2 py-4 text-base text-center font-bold">
                   {station.empty_slots}
                 </td>
               </tr>
