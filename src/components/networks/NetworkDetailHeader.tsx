@@ -35,9 +35,9 @@ export function NetworkDetailHeader({
         <div className="absolute inset-0 bg-linear-to-b from-black/0 to-torres-bay-800" />
       </div>
 
-      {/* Contenido sobre la imagen */}
+      {/* Content */}
       <div className="relative h-full flex flex-col justify-between py-6 text-base-white">
-        {/* Botón de volver */}
+        {/* GoBack button */}
         <button
           onClick={() => router.back()}
           className="self-start flex items-center justify-center w-10 h-10 rounded-full bg-base-white cursor-pointer"
@@ -47,9 +47,9 @@ export function NetworkDetailHeader({
         </button>
 
         {/* Network info*/}
-        <div className="space-y-3">
+        <div>
           {/* Name */}
-          <h1 className="text-3xl font-bold">
+          <h1 className="mb-2 text-3xl font-bold">
             {name}
           </h1>
 
@@ -61,7 +61,7 @@ export function NetworkDetailHeader({
             </span>
           </div>
 
-          {/* Compañías */}
+          {/* Companies */}
           {companies.length > 0 && (
             <div className="flex items-start gap-2 text-base-white">
               <Briefcase className="h-4 w-4 mt-0.5 shrink-0" />

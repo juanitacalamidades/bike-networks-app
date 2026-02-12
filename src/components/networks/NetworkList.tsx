@@ -158,12 +158,6 @@ export function NetworkList({ networks }: NetworkListProps) {
                 </Pagination>
             )}
 
-            {/* Results info */}
-            <div className="text-center">
-                <p className="text-sm text-muted-foreground">
-                Showing {startIndex + 1}-{Math.min(endIndex, networks.length)} of {networks.length} bicycle network{networks.length !== 1 ? 's' : ''}
-                </p>
-            </div>
         </div>
         );
 }

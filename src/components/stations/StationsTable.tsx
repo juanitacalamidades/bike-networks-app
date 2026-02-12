@@ -201,13 +201,6 @@ export function StationsTable({ stations }: StationsTableProps) {
           </tbody>
         </table>
       </div>
-
-      {/* Mensaje si no hay estaciones */}
-      {stations.length === 0 && (
-        <div className="px-6 py-12 text-center text-white/60">
-          <p>No stations found for this network</p>
-        </div>
-      )}
     </div>
   );
 }

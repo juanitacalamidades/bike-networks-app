@@ -2,7 +2,7 @@ import { getNetworkById } from "@/lib/api/citybikes";
 import { NetworkDetailHeader } from '@/components/networks/NetworkDetailHeader';
 import { StationsTable } from '@/components/stations/StationsTable';
 import { notFound } from 'next/navigation';
-import type { Metadata } from 'next';
+
 
 interface NetworkDetailPageProps {
   params: Promise<{
@@ -21,7 +21,7 @@ interface NetworkDetailPageProps {
  * Route: /network/[id]
  */
 export default async function NetworkDetailPage({ params }: NetworkDetailPageProps) {
-  // Await params in Next.js 15+
+
   const { id } = await params;
   
   let networkDetail;
@@ -65,25 +65,4 @@ export default async function NetworkDetailPage({ params }: NetworkDetailPagePro
       </div>
     </main>
   );
-}
-
-/**
- * Generate metadata for SEO
- */
-export async function generateMetadata({ params }: NetworkDetailPageProps): Promise<Metadata> {
-  // Await params in Next.js 15+
-  const { id } = await params;
-  
-  try {
-    const networkDetail = await getNetworkById(id);
-    
-    return {
-      title: `${networkDetail.name} - ${networkDetail.location.city} | CycleMap`,
-      description: `Explore ${networkDetail.name} bicycle network in ${networkDetail.location.city}, ${networkDetail.location.country}. Find bike stations, availability, and real-time information.`,
-    };
-  } catch {
-    return {
-      title: 'Network Not Found | CycleMap',
-    };
-  }
 }

@@ -39,11 +39,6 @@ export interface Station {
     longitude: number;
     free_bikes: number;
     empty_slots: number;
-    // extra?: {
-    //     uid?: string;
-    //     number?: number;
-    //     [key: string]: any;
-    // };
 }
 
 /**
