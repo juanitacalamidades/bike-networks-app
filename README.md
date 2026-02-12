@@ -46,7 +46,7 @@ A web application for exploring bicycle networks around the world. Built with Ne
   - Station name
   - Number of free bikes
   - Number of empty slots
-- 🔄 **Sortable table** (BONUS feature)
+- 🔄 **Sortable table**
   - Sort by station name
   - Sort by free bikes (ascending/descending)
   - Sort by empty slots (ascending/descending)
