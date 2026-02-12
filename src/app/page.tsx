@@ -28,7 +28,7 @@ export default async function Home() {
     <main className="flex flex-col lg:flex-row h-screen overflow-hidden">
       {/* Left col: Network list */}
       <div className="w-full lg:w-[40%] h-screen overflow-y-auto scrollbar-hide">
-        <div className="p-10">
+        <div className="p-4 lg:p-10">
           <NetworksView networks={networks} />
         </div>
       </div>

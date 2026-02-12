@@ -22,7 +22,7 @@ export function NetworkDetailHeader({
   const companies = normalizeCompanies(company);
 
   return (
-    <div className="relative h-64 overflow-hidden px-10">
+    <div className="relative h-64 overflow-hidden px-4 lg:px-10">
       {/* Hero image */}
       <div 
         className="absolute inset-0 bg-cover bg-center"

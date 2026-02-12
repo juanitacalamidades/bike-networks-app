@@ -42,7 +42,7 @@ export function NetworkCard({ network }: NetworkCardProps){
       return (
         
 
-      <Card className="group relative transition-all gap-0 px-6 py-4 duration-200 group-hover/button:bg-torres-bay-100 border-b border-torres-bay-100">
+      <Card className="group relative transition-all gap-0 px-4 py-2 lg:px-6 lg:py-4 duration-200 group-hover/button:bg-torres-bay-100 border-b border-torres-bay-100">
         <CardHeader className='gap-0 mb-1 p-0'>
           <CardTitle className="text-xl/7 text-torres-bay-800">
             {network.name}

@@ -139,7 +139,7 @@ export function StationsTable({ stations }: StationsTableProps) {
   };
 
   return (
-    <div className="bg-torres-bay-800 text-base-white px-10">
+    <div className="bg-torres-bay-800 text-base-white px-4 lg:px-10">
       {/* Header con contador */}
       <div className="pt-2 pb-3">
         <p className="text-sm">
