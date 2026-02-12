@@ -19,6 +19,7 @@ A web application for exploring bicycle networks around the world. Built with Ne
 - [Development](#development)
 - [Build & Deploy](#build--deploy)
 - [Architecture Decisions](#architecture-decisions)
+- [Documentation as learning](#documentation-learning)
 
 
 ---
@@ -502,6 +503,12 @@ const sorted = useMemo(() => sort(data), [data, sortBy]);
 const newArray = [...oldArray];
 ```
 
+
+---
+
+**Documentation as Learning:**
+
+Throughout the development process, I made it a point to document the code extensively with explanatory comments. Each component includes JSDoc comments describing its purpose, props, and key behaviors. Complex functions have inline comments explaining the reasoning behind specific implementations - particularly around the sorting algorithm, immutability patterns, and state management decisions. This wasn't just about making the code readable for others; writing comments actually helped me internalize the concepts and understand *why* certain patterns are important. I think that the act of explaining the code in plain language forces thinking through decisions more carefully and I believe it is invaluable for both learning and long-term maintainability.
 
 ---
 
