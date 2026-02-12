@@ -203,4 +203,4 @@ npm run lint     # ESLint
 
 ---
 
-Made with ❤️ by yoanna r.
+Made with ❤️ by yoanna rodionova
