@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={poppins.variable}>
-      <body className={`${poppins.className} h-screen antialiased`}>
+      <body className={`${poppins.className} h-screen overflow-hidden antialiased`}>
        <MapProvider>
           {/**
            * Layout de dos columnas:
