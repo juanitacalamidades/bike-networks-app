@@ -11,7 +11,7 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    console.error('Error:', error);
+    console.error('Error:', error); // make sure log is done after the first render
   }, [error]);
 
   return (

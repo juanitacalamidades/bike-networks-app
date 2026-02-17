@@ -23,20 +23,15 @@ export default async function Home() {
   // Gets bike networks
   // Next waits until the promise is resolved
   const networks = await getNetworks();
+  
+  //throw new Error("Test") --> testing error.tsx
 
   return (
     <main className="flex flex-col lg:flex-row h-screen overflow-hidden">
       {/* Left col: Network list */}
-      <div className="w-full lg:w-[40%] h-screen overflow-y-auto scrollbar-hide">
+      <div className="w-full lg:w-full h-screen overflow-y-auto scrollbar-hide">
         <div className="p-4 lg:p-10">
           <NetworksView networks={networks} />
-        </div>
-      </div>
-
-      {/* Col right: Map (remaining space) */}
-      <div className="hidden lg:block lg:flex-1 relative h-screen">
-        <div className="sticky top-0 h-screen w-full border-2 border-dashed border-muted-foreground/25 flex items-center justify-center bg-muted/10">
-          <p>Map to be implemented</p>
         </div>
       </div>
       </main>
@@ -45,10 +40,3 @@ export default async function Home() {
 
 
 
-/**
- * Metadata
- */
-export const metadata = {
-  title: 'Bicycle Networks',
-  description: 'Find bike stations, availability, and network information.',
-};
