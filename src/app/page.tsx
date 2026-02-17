@@ -42,13 +42,3 @@ export default async function Home() {
       </main>
   )
 }
-
-
-
-/**
- * Metadata
- */
-export const metadata = {
-  title: 'Bicycle Networks',
-  description: 'Find bike stations, availability, and network information.',
-};
