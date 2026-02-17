@@ -126,9 +126,9 @@ export function StationsTable({ stations }: StationsTableProps) {
             {sortedStations.map((station, index) => (
               <tr
                 key={station.id || index}
-                onClick={() => flyTo(station)}  // ← click en fila → flyTo
+                onClick={() => flyTo(station)}
                 className="border-b border-dashed border-base-white/50 hover:bg-base-white/10 transition-colors cursor-pointer"
-              >
+              > {/** Todo: add different background color for selected station with useState */}
                 <td className="px-2 py-4 text-base hover:translate-x-2 transition transition-duration-300">
                   {station.name}
                 </td>

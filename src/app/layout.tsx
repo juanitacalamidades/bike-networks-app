@@ -32,7 +32,7 @@ export default function RootLayout({
            * - Panel derecho: mapa persistente, nunca se desmonta
            */}
           <div className="flex h-screen overflow-hidden">
-            <aside className="w-[40%] shrink-0 overflow-y-auto">
+            <aside className="w-[90%] lg:w-[40%] shrink-0 overflow-y-auto">
               {children}
             </aside>
             <main className="flex-1 lg:w-[60%]">
