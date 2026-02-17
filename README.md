@@ -6,7 +6,7 @@ A web application for exploring bicycle sharing networks worldwide. Built with N
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38bdf8)
 
-**Live Demo:** [https://bike-networks-app.vercel.app](https://bike-networks-app.vercel.app)
+**Live Demo:** [https://bike-networks-app-git-map-juanitas-playground.vercel.app/](https://bike-networks-app-git-map-juanitas-playground.vercel.app/)
 
 ---
 
@@ -23,6 +23,18 @@ A web application for exploring bicycle sharing networks worldwide. Built with N
 
 ## Features
 
+### Interactive Map
+- **Persistent Mapbox map** across all routes without remounting
+- Global view showing all bicycle networks worldwide
+- Detailed view showing all stations for a selected network
+- Smooth `flyTo` animations when navigating between networks and stations
+- Interactive markers with tooltips displaying:
+  - Network/station name
+  - City and country (networks)
+  - Free bikes and empty slots (stations)
+- Custom circular markers for better visualization
+- Geolocation control to find networks near you
+
 ### Network List
 - Browse bicycle sharing networks worldwide
 - Display network name, location (city/country), and operating companies
@@ -34,6 +46,7 @@ A web application for exploring bicycle sharing networks worldwide. Built with N
 - Complete station information
 - Sortable columns (name, free bikes, empty slots)
 - 3-state sorting: ascending → descending → reset
+- Click on any station row to fly to its location on the map
 - Back navigation and breadcrumbs
 
 ### Technical
@@ -41,6 +54,8 @@ A web application for exploring bicycle sharing networks worldwide. Built with N
 - Performance optimized with useMemo
 - Accessible (ARIA labels, semantic HTML)
 - SEO friendly with dynamic metadata
+- Context-based map state management
+- Server and client component separation for optimal performance
 
 ---
 
@@ -50,6 +65,7 @@ A web application for exploring bicycle sharing networks worldwide. Built with N
 - **[TypeScript](https://www.typescriptlang.org/)** - Type safety
 - **[React 19](https://react.dev/)** - UI library
 - **[Tailwind CSS 4](https://tailwindcss.com/)** - Utility-first CSS
+- **[Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/)** - Interactive maps
 - **[shadcn/ui](https://ui.shadcn.com/)** - Component library
 - **[Lucide React](https://lucide.dev/)** - Icons
 - **[CityBikes API](https://api.citybik.es/v2/)** - Data source
@@ -76,10 +92,12 @@ A web application for exploring bicycle sharing networks worldwide. Built with N
    npm install
    ```
 
-3. (Optional) Create `.env.local`
+3. Create `.env.local` with your Mapbox token
    ```env
    NEXT_PUBLIC_API_URL=https://api.citybik.es/v2
+   NEXT_PUBLIC_MAPBOX_TOKEN=your_mapbox_token_here
    ```
+   Get a free Mapbox token at [mapbox.com/signup](https://account.mapbox.com/auth/signup/)
 
 4. Run development server
    ```bash
@@ -96,19 +114,27 @@ A web application for exploring bicycle sharing networks worldwide. Built with N
 bike-networks-app/
 ├── src/
 │   ├── app/                      # Next.js App Router
+│   │   ├── api/
+│   │   │   └── networks/         # API routes
 │   │   ├── networks/[id]/        # Network detail pages
-│   │   ├── layout.tsx
+│   │   ├── layout.tsx            # Root layout with persistent map
 │   │   ├── page.tsx              # Home (network list)
 │   │   └── globals.css
 │   │
 │   ├── components/
+│   │   ├── map/                  # Map components
+│   │   │   ├── MapboxMap.tsx
+│   │   │   └── NetworkMapController.tsx
 │   │   ├── networks/             # Network components
 │   │   ├── stations/             # Station components
 │   │   └── ui/                   # shadcn/ui components
 │   │
+│   ├── context/
+│   │   └── MapContext.tsx        # Map state management
+│   │
 │   ├── lib/
 │   │   ├── api/                  # API clients
-│   │   └── utils.ts
+│   │   └── utils.ts              # Utilities (including map markers)
 │   │
 │   └── types/                    # TypeScript definitions
 │
@@ -197,10 +223,10 @@ npm run lint     # ESLint
 
 ## Contact
 
-**Project:** [github.com/juanitacalamidades/bike-networks-app](https://github.com/juanitacalamidades/bike-networks-app)
+**Project:** [github.com/juanitacalamidades/bike-networks-app/tree/map](https://github.com/juanitacalamidades/bike-networks-app/tree/map)
 
-**Live Demo:** [bike-networks-app.vercel.app](https://bike-networks-app.vercel.app)
+**Live Demo:** [bike-networks-app-git-map-juanitas-playground.vercel.app](https://bike-networks-app-git-map-juanitas-playground.vercel.app/)
 
 ---
 
-Made with ❤️ by yoanna r.
+Made with ❤️ by yoanna

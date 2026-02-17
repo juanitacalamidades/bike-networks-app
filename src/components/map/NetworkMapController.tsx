@@ -5,7 +5,7 @@
  *
  * Por qué existe este componente:
  *  - NetworkDetailPage es un Server Component y no puede usar hooks.
- *  - Este componente cliente recibe las estaciones ya fetchadas por
+ *  - Este componente cliente recibe las estaciones con fetch por
  *    la página y se encarga de comunicárselas al mapa via context.
  *
  * Responsabilidades:
