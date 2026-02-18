@@ -203,4 +203,26 @@ npm run lint     # ESLint
 
 ---
 
-Made with ❤️ by yoanna rodionova
+## Bonus 
+
+NOTE: This feature was added after the original deadline.
+
+
+A map showing the bike networks and stations can be seen on branch 'map'
+[https://github.com/juanitacalamidades/bike-networks-app/tree/map]
+
+(https://bike-networks-app-git-map-juanitas-playground.vercel.app/)
+
+The map includes:
+- Navigation controls
+- 'Near me' button that centers and zooms he map around the user's location
+- A tooltip on each station that shows 
+          - name of the station
+          - free bikes
+          - empty slots
+
+### Tech stack
+
+- Mapbox
+
+Made with ❤️ by yoanna r.
