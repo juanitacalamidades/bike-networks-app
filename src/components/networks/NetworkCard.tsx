@@ -65,11 +65,11 @@ export function NetworkCard({ network }: NetworkCardProps){
             <div className="flex items-center justify-center h-6 w-6 bg-torres-bay-50 rounded mr-2 shrink-0">
               <Briefcase className="h-4 w-4 text-grenadier-400" />
             </div>
-            <div className="flex flex-wrap items-center">
+            <div className="flex items-center">
               {companies.length > 0 ? (
                 <>
                   {displayCompanies.map((company, index) => (
-                    <span key={index} className="text-sm/7 text-zinc-500">
+                    <span key={index} className="text-sm/7 max-w-57.5 truncate text-zinc-500">
                       {company}
                       {index < displayCompanies.length - 1 && ','}
                     </span>
