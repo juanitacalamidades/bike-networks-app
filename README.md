@@ -48,7 +48,6 @@ A web application for exploring bicycle sharing networks worldwide. Built with N
 
 - **[Next.js 15](https://nextjs.org/)** - React framework with App Router
 - **[TypeScript](https://www.typescriptlang.org/)** - Type safety
-- **[React 19](https://react.dev/)** - UI library
 - **[Tailwind CSS 4](https://tailwindcss.com/)** - Utility-first CSS
 - **[shadcn/ui](https://ui.shadcn.com/)** - Component library
 - **[Lucide React](https://lucide.dev/)** - Icons
@@ -203,7 +202,7 @@ npm run lint     # ESLint
 
 ---
 
-## Bonus 
+## Map 
 
 NOTE: This feature was added after the original deadline.
 
@@ -211,7 +210,6 @@ NOTE: This feature was added after the original deadline.
 A map showing the bike networks and stations can be seen on branch 'map'
 [https://github.com/juanitacalamidades/bike-networks-app/tree/map]
 
-(https://bike-networks-app-git-map-juanitas-playground.vercel.app/)
 
 The map includes:
 - Navigation controls

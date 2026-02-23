@@ -31,6 +31,12 @@ export async function getNetworks() : Promise<Network[]> {
         // JSON parse and type addition
         const data : NetworksAPIResponse = await response.json(); // type assertion
 
+        data.networks.map((data) => {
+            
+            let companies = data.company
+            console.log(Array.isArray(companies))
+        })
+        // console.log(`Data networks:`)
         return data.networks;
 
     }catch(error){
