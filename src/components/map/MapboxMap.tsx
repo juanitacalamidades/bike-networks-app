@@ -10,9 +10,9 @@
  *  - Al hacer click en un marker, mostrar un popup con el nombre de la red.
  *
  * Cambio respecto a la versión anterior:
- *  - Antes fetchaba todas las estaciones de todas las redes (una petición
+ *  - Antes fetch a todas las estaciones de todas las redes (una petición
  *    por red), lo que saturaba el rate limit de la API con un 429.
- *  - Ahora solo fetcha getNetworks() — una única petición — y pinta
+ *  - Ahora solo fetch a getNetworks() — una única petición — y pinta
  *    un marker por red. Las estaciones se cargan en /network/[id].
  *
  * Notas:
@@ -36,7 +36,7 @@ mapboxgl.accessToken = token
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 /**
- * Fetcha la lista de redes desde la API de CityBikes.
+ * Fetch a la lista de redes desde la API de CityBikes.
  * Una única petición — sin riesgo de rate limit.
  */
 async function fetchNetworks(): Promise<Network[]> {
