@@ -137,9 +137,9 @@ bike-networks-app/
 │   ├── components/              # React components
 │   │   ├── networks/            # Network list components
 │   │   │   ├── NetworkCard.tsx
-|   |   |   ├── NetworkDetailHeader.tsx
-|   |   |   ├── NetworkList.tsx
-|   |   |   ├── NetworksHeader.tsx
+│   │   │   ├── NetworkDetailHeader.tsx
+│   │   │   ├── NetworkList.tsx
+│   │   │   ├── NetworksHeader.tsx
 │   │   │   └── NetworksView.tsx
 │   │   ├── stations/            # Station components
 │   │   │   └── StationsTable.tsx
@@ -278,7 +278,7 @@ This creates an optimized production build in `.next/`
 ✅ **Built-in data fetching** - No need for external state management libraries  
 ✅ **File-based routing** - Intuitive and automatic  
 ✅ **SEO friendly** - Server-side rendering by default  
-✅ **Modern React features** - Supports latest React 19 capabilities  
+✅ **Modern React features** - Supports latest React capabilities  
 
 ### Server Components vs Client Components Strategy
 
@@ -369,7 +369,7 @@ const newArray = [...oldArray];
 
 ---
 
-**Documentation as Learning:**
+## Documentation as Learning
 
 Throughout the development process, I made it a point to document the code extensively with explanatory comments. Each component includes JSDoc comments describing its purpose, props, and key behaviors. Complex functions have inline comments explaining the reasoning behind specific implementations - particularly around the sorting algorithm, immutability patterns, and state management decisions. This wasn't just about making the code readable for others; writing comments actually helped me internalize the concepts and understand *why* certain patterns are important. I think that the act of explaining the code in plain language forces thinking through decisions more carefully and I believe it is invaluable for both learning and long-term maintainability.
 
