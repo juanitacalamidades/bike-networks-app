@@ -189,3 +189,51 @@
 }
 
 
+/* ========================================
+  Geolocate button
+   ======================================== */
+.mapboxgl-ctrl-top-left .mapboxgl-ctrl-group {
+  background-color: transparent !important;
+}
+
+.mapboxgl-ctrl-top-left .mapboxgl-ctrl-group:not(:empty) {
+  box-shadow: none !important;
+}
+
+.mapboxgl-ctrl-top-right .mapboxgl-ctrl-group {
+  border-radius: 43px;
+}
+
+.mapboxgl-ctrl-geolocate {
+  background-color: #3D3B8E !important;
+  border-radius: 999px !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 6px 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Icono SVG — blanco para contrastar con el fondo oscuro */
+.mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon {
+  filter: invert(1) !important;
+  width: 24px !important;
+  height: 24px !important;
+  background-size: contain !important;
+}
+
+/* Texto "Near me" — añadido via pseudo-elemento */
+.mapboxgl-ctrl-geolocate::after {
+  content: 'Near me';
+  color: white;
+  font-family: var(--font-poppins);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+
